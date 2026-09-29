@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: jewelry-billing
+  datasource:
+    url: jdbc:mysql://localhost:3306/jewelry_billing?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:JewelryBillingSecretKeyMustBeAtLeast256BitsLongForHS256Algorithm!!}
+    expiration-ms: 86400000
+  billing:
+    default-gst-percent: 3.00
+  rates:
+    auto-fetch-enabled: false
+    fetch-cron: "0 30 9 * * *"
+    api-url: ${METAL_RATE_API_URL:}
+
+logging:
+  level:
+    com.jewelry.billing: INFO
