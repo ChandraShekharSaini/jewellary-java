@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://backend-load-471836027.us-east-1.elb.amazonaws.com',
         changeOrigin: true,
       },
     },
