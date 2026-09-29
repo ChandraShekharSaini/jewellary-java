@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: 'http://backend-load-471836027.us-east-1.elb.amazonaws.com/api/v1',
 });
 
 api.interceptors.request.use((config) => {
