@@ -22,6 +22,11 @@ public class ProductController {
         return productService.getActiveProducts();
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
     @PostMapping
     @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     public ProductResponse createProduct(@Valid @RequestBody ProductRequest request) {

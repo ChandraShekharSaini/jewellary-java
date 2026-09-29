@@ -29,6 +29,14 @@ app:
     fetch-cron: "0 30 9 * * *"
     api-url: ${METAL_RATE_API_URL:}
 
+
+
 logging:
   level:
     com.jewelry.billing: INFO
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
